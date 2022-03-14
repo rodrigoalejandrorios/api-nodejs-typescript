@@ -47,3 +47,9 @@ METODOS:
 | **Ruteo**       | <span style="color: #94fc03">PRACTICO</span>           | Modalidad de ruta para aplicar en un servidor basado en POO |
 | **Ruteo**       | <span style="color: #94fc03">PRACTICO</span>           | Generando rutas extendidas de una ruta base                 |
 | **Controlador** | <span style="color: #fc7b03">TEORICO / PRACTICO</span> | ¿Que es un controlador? Explicado en ruta                   |
+
+| CLASE 3    | Metodo                                                 | Contenido                                                |
+| ---------- | ------------------------------------------------------ | -------------------------------------------------------- |
+| **Config** | <span style="color: #94fc03">PRACTICO</span>           | Configuracion de variables de entorno                    |
+| **Config** | <span style="color: #fc7b03">TEORICO / PRACTICO</span> | ¿Que es un entorno de ejecucion? Explicado en config     |
+| **Config** | <span style="color: #94fc03">PRACTICO</span>           | Declaracion de variables de entorno en nuestro server.ts |
