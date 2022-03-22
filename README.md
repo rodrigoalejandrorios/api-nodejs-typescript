@@ -53,3 +53,12 @@ METODOS:
 | **Config** | <span style="color: #94fc03">PRACTICO</span>           | Configuracion de variables de entorno                    |
 | **Config** | <span style="color: #fc7b03">TEORICO / PRACTICO</span> | ¿Que es un entorno de ejecucion? Explicado en config     |
 | **Config** | <span style="color: #94fc03">PRACTICO</span>           | Declaracion de variables de entorno en nuestro server.ts |
+
+| CLASE 4                 | Metodo                                                 | Contenido                                                 |
+| ----------------------- | ------------------------------------------------------ | --------------------------------------------------------- |
+| **Docker Compose (DB)** | <span style="color: #94fc03">PRACTICO</span>           | Crear nuestro `docker-compose.yml`                        |
+| **Docker Compose (DB)** | <span style="color: #fc7b03">TEORICO / PRACTICO</span> | Ejecutando nuestro docker-compose y comprobar la conexion |
+| **TypeORM (DB)**        | <span style="color: #94fc03">PRACTICO</span>           | Crear nuestro getter de configuracion de conexion         |
+| **TypeORM (DB)**        | <span style="color: #94fc03">PRACTICO</span>           | Ejecutar la conexion en nuestro server                    |
+| **TypeORM (DB)**        | <span style="color: #94fc03">PRACTICO</span>           | Crear nuestra entidad base con datos comunes              |
+| **TypeORM (DB)**        | <span style="color: #94fc03">PRACTICO</span>           | Creando nuestra primer entidad para nuestra base de datos |
