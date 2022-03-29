@@ -1,5 +1,7 @@
 # Curso de NodeJS con TypeScript y TypeORM
 
+## Mira el curso completo [aqui](https://www.youtube.com/watch?v=8qteIhQe4ts&list=PLergODdA95keGVKSOPApWRw0XuA-ivH_u)
+
 En este curso aprenderas como generar una API REST compleja con NodeJS utilizando como lenguage core `TypeScript` y `TypeORM` como ORM SQL.
 
 ## Tecnologias a aplicar:
@@ -62,3 +64,10 @@ METODOS:
 | **TypeORM (DB)**        | <span style="color: #94fc03">PRACTICO</span>           | Ejecutar la conexion en nuestro server                    |
 | **TypeORM (DB)**        | <span style="color: #94fc03">PRACTICO</span>           | Crear nuestra entidad base con datos comunes              |
 | **TypeORM (DB)**        | <span style="color: #94fc03">PRACTICO</span>           | Creando nuestra primer entidad para nuestra base de datos |
+
+| CLASE 5         | Metodo                                                 | Contenido                                                               |
+| --------------- | ------------------------------------------------------ | ----------------------------------------------------------------------- |
+| **Servicio**    | <span style="color: #fc7b03">TEORICO / PRACTICO</span> | Que son y para que sirven los servicios                                 |
+| **Servicio**    | <span style="color: #94fc03">PRACTICO</span>           | Instanciando metodos desplegados con funcion de repositorio con TypeORM |
+| **Servicio**    | <span style="color: #94fc03">PRACTICO</span>           | Creacion de `findAll` `findById` `create` `updtae` `delete`             |
+| **Controlador** | <span style="color: #94fc03">PRACTICO</span>           | Integracion de metodos instanciando servicios con los controladores     |
