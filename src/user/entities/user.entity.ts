@@ -23,7 +23,7 @@ export class UserEntity extends BaseEntity {
   city!: string;
 
   @Column()
-  province!: number;
+  province!: string;
 
   @OneToOne(() => CustomerEntity, (customer) => customer.user)
   customer!: CustomerEntity;
