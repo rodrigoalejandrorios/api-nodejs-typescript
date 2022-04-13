@@ -3,7 +3,11 @@ import morgan from "morgan";
 import cors from "cors";
 import { UserRouter } from "./user/user.router";
 import { ConfigServer } from "./config/config";
-import { Connection, createConnection } from "typeorm";
+import { PurchaseRouter } from "./purchase/purchase.router";
+import { ProductRouter } from "./product/product.router";
+import { CustomerRouter } from "./customer/customer.router";
+import { CategoryRouter } from "./category/category.router";
+import { PurchaseProductRouter } from "./purchase/purchase-product.router";
 
 class ServerBootstrap extends ConfigServer {
   public app: express.Application = express();
@@ -24,11 +28,14 @@ class ServerBootstrap extends ConfigServer {
   }
 
   routers(): Array<express.Router> {
-    return [new UserRouter().router];
-  }
-
-  async dbConnect(): Promise<Connection> {
-    return await createConnection(this.typeORMConfig);
+    return [
+      new UserRouter().router,
+      new PurchaseRouter().router,
+      new ProductRouter().router,
+      new CustomerRouter().router,
+      new CategoryRouter().router,
+      new PurchaseProductRouter().router,
+    ];
   }
 
   public listen() {

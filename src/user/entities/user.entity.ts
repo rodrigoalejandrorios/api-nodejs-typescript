@@ -1,5 +1,6 @@
-import { Column, Entity } from "typeorm";
+import { Column, Entity, OneToOne } from "typeorm";
 import { BaseEntity } from "../../config/base.entity";
+import { CustomerEntity } from "../../customer/entitites/customer.entity";
 
 @Entity({ name: "users" })
 export class UserEntity extends BaseEntity {
@@ -15,15 +16,15 @@ export class UserEntity extends BaseEntity {
   @Column()
   email!: string;
 
-  @Column()
+  @Column({ select: false })
   password!: string;
 
-  @Column({ nullable: true })
-  jobPosition?: string;
+  @Column()
+  city!: string;
 
   @Column()
-  numberPhone!: number;
+  province!: string;
 
-  @Column({ nullable: true })
-  streetAddress?: string;
+  @OneToOne(() => CustomerEntity, (customer) => customer.user)
+  customer!: CustomerEntity;
 }
