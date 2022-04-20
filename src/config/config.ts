@@ -32,14 +32,6 @@ export abstract class ConfigServer {
     return "." + arrEnv.join(".");
   }
 
-  //   DB_PORT=3312
-  // DB_HOST=localhost
-  // DB_DATABASE=codrr_db
-  // DB_USER=ucodrr
-  // DB_PASSWORD=secret
-
-  //userName => user_name
-
   public get typeORMConfig(): ConnectionOptions {
     return {
       type: "mysql",
