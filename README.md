@@ -84,3 +84,21 @@ METODOS:
 | **Servicio**    | <span style="color: #94fc03">PRACTICO</span>           | Instanciando metodos desplegados con funcion de repositorio con TypeORM |
 | **Servicio**    | <span style="color: #94fc03">PRACTICO</span>           | Creacion de `findAll` `findById` `create` `updtae` `delete`             |
 | **Controlador** | <span style="color: #94fc03">PRACTICO</span>           | Integracion de metodos instanciando servicios con los controladores     |
+
+| CLASE 7         | Metodo                                       | Contenido                                                    |
+| --------------- | -------------------------------------------- | ------------------------------------------------------------ |
+| **Controlador** | <span style="color: #94fc03">PRACTICO</span> | Crear nuestro enum de status code                            |
+| **Controlador** | <span style="color: #94fc03">PRACTICO</span> | Crear nuestra clase `HttpResponse` e integrando nuestro enum |
+| **Controlador** | <span style="color: #94fc03">PRACTICO</span> | Instanciar nuestra clase de respuesta en nuestro controlador |
+| **Controlador** | <span style="color: #94fc03">PRACTICO</span> | Editar nuestros metodos en controlador                       |
+
+| CLASE 8         | Metodo                                                 | Contenido                                                                   |
+| --------------- | ------------------------------------------------------ | --------------------------------------------------------------------------- |
+| **TypeORM**     | <span style="color: #94fc03">PRACTICO</span>           | Pasaje de typeorm 0.2 a 0.3                                                 |
+| **TypeORM**     | <span style="color: #94fc03">PRACTICO</span>           | Crear nuestro `Data Source`                                                 |
+| **TypeORM**     | <span style="color: #94fc03">PRACTICO</span>           | Editar nuestra configuracion de `Data Source` y prepararla para migraciones |
+| **TypeORM**     | <span style="color: #94fc03">PRACTICO</span>           | Editar cada uno de los metodos deprecados de la version anterior            |
+| **Servicio**    | <span style="color: #94fc03">PRACTICO</span>           | Modificar los metodos que ya no son soportados en la version 0.3            |
+| **Migraciones** | <span style="color: #fc7b03">TEORICO / PRACTICO</span> | Por que migraciones?                                                        |
+| **Migraciones** | <span style="color: #94fc03">PRACTICO</span>           | Creando nuestros script de `typeorm` `migration:generate` y `migration:run` |
+| **Migraciones** | <span style="color: #94fc03">PRACTICO</span>           | Correr migraciones y probando nuestro codigo                                |
