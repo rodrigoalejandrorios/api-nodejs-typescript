@@ -13,7 +13,7 @@ export class UserRouter extends BaseRouter<UserController> {
     this.router.get("/userRel/:id", (req, res) =>
       this.controller.getUserWithRelationById(req, res)
     );
-    this.router.post("/createUser", (req, res) =>
+    this.router.post("/register", (req, res) =>
       this.controller.createUser(req, res)
     );
     this.router.put("/updateUser/:id", (req, res) =>
