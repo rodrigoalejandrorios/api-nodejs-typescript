@@ -1,8 +1,9 @@
 import { BaseRouter } from "../shared/router/router";
 import { UserController } from "./controllers/user.controller";
-export class UserRouter extends BaseRouter<UserController> {
+import { UserMiddleware } from "./middlewares/user.middleware";
+export class UserRouter extends BaseRouter<UserController, UserMiddleware> {
   constructor() {
-    super(UserController);
+    super(UserController, UserMiddleware);
   }
 
   routes(): void {
@@ -13,8 +14,10 @@ export class UserRouter extends BaseRouter<UserController> {
     this.router.get("/userRel/:id", (req, res) =>
       this.controller.getUserWithRelationById(req, res)
     );
-    this.router.post("/register", (req, res) =>
-      this.controller.createUser(req, res)
+    this.router.post(
+      "/createUser",
+      (req, res, next) => [this.middleware.userValidator(req, res, next)],
+      (req, res) => this.controller.createUser(req, res)
     );
     this.router.put("/updateUser/:id", (req, res) =>
       this.controller.updateUser(req, res)
