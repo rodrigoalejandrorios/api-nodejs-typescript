@@ -12,6 +12,7 @@ import { PurchaseProductRouter } from "./purchase/purchase-product.router";
 import { DataSource } from "typeorm";
 import { LoginStrategy } from "./auth/strategies/login.strategy";
 import { JwtStrategy } from "./auth/strategies/jwt.strategy";
+import { AuthRouter } from "./auth/auth.router";
 
 class ServerBootstrap extends ConfigServer {
   public app: express.Application = express();
@@ -38,6 +39,7 @@ class ServerBootstrap extends ConfigServer {
       new CustomerRouter().router,
       new CategoryRouter().router,
       new PurchaseProductRouter().router,
+      new AuthRouter().router,
     ];
   }
 
