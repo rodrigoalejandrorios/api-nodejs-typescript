@@ -39,7 +39,7 @@ export class AuthService extends ConfigServer {
   //JWT_SECRET
 
   sing(payload: jwt.JwtPayload, secret: any) {
-    return this.jwtInstance.sign(payload, secret);
+    return this.jwtInstance.sign(payload, secret, { expiresIn: "1h" });
   }
 
   public async generateJWT(

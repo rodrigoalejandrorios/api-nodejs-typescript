@@ -13,6 +13,7 @@ export class AuthController extends AuthService {
   async login(req: Request, res: Response) {
     try {
       const userEncode = req.user as UserEntity;
+
       const encode = await this.generateJWT(userEncode);
       if (!encode) {
         return this.httpResponse.Unauthorized(res, "No tienes permisos");

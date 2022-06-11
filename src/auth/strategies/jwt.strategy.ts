@@ -23,6 +23,7 @@ export class JwtStrategy extends AuthService {
       {
         jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
         secretOrKey: this.getEnvironment("JWT_SECRET"),
+        ignoreExpiration: false,
       },
       this.validate
     );

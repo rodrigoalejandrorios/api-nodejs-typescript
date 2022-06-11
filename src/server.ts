@@ -25,7 +25,14 @@ class ServerBootstrap extends ConfigServer {
     this.passportUse();
     this.dbConnect();
     this.app.use(morgan("dev"));
-    this.app.use(cors());
+
+    this.app.use(
+      cors({
+        origin: true,
+        methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+        credentials: true,
+      })
+    );
 
     this.app.use("/api", this.routers());
     this.listen();
@@ -59,7 +66,9 @@ class ServerBootstrap extends ConfigServer {
 
   public listen() {
     this.app.listen(this.port, () => {
-      console.log("Server listening on port =>" + this.port);
+      console.log(
+        `Listen in ${this.port} :: ENV = ${this.getEnvironment("ENV")}`
+      );
     });
   }
 }
