@@ -9,8 +9,12 @@ export class ProductController {
     private readonly httpResponse: HttpResponse = new HttpResponse()
   ) {}
   async getProducts(req: Request, res: Response) {
+    const { offset, limit } = req.query;
     try {
-      const data = await this.productService.findAllProducts();
+      const data = await this.productService.findAllProducts(
+        offset !== undefined ? +offset : undefined,
+        limit !== undefined ? +limit : undefined
+      );
       if (data.length === 0) {
         return this.httpResponse.NotFound(res, "No existe dato");
       }

@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import * as jwt from "jsonwebtoken";
 import { UserService } from "../services/user.service";
 import { HttpResponse } from "../../shared/response/http.response";
 import { DeleteResult, UpdateResult } from "typeorm";
@@ -73,6 +74,27 @@ export class UserController {
       return this.httpResponse.Error(res, e);
     }
   }
+
+  async updatePassword(req: Request, res: Response) {
+    const { token } = req.params;
+    const info = jwt.decode(token);
+    try {
+      if (info!.sub) {
+        const data: UpdateResult = await this.userService.updatePassword(
+          `${info!.sub}`,
+          req.body
+        );
+        if (!data.affected) {
+          return this.httpResponse.NotFound(res, "Hay un error en actualizar");
+        }
+        return this.httpResponse.Ok(res, data);
+      }
+    } catch (e) {
+      console.error(e);
+      return this.httpResponse.Error(res, e);
+    }
+  }
+
   async deleteUser(req: Request, res: Response) {
     const { id } = req.params;
     try {

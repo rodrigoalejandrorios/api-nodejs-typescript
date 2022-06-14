@@ -38,8 +38,8 @@ export class AuthService extends ConfigServer {
 
   //JWT_SECRET
 
-  sing(payload: jwt.JwtPayload, secret: any) {
-    return this.jwtInstance.sign(payload, secret, { expiresIn: "1h" });
+  sing(payload: jwt.JwtPayload, secret: any, expires: any) {
+    return this.jwtInstance.sign(payload, secret, { expiresIn: expires });
   }
 
   public async generateJWT(
@@ -60,7 +60,7 @@ export class AuthService extends ConfigServer {
     }
 
     return {
-      accessToken: this.sing(payload, this.getEnvironment("JWT_SECRET")),
+      accessToken: this.sing(payload, this.getEnvironment("JWT_SECRET"), "1h"),
       user,
     };
   }

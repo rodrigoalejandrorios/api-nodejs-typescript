@@ -15,6 +15,9 @@ export class UserRouter extends BaseRouter<UserController, UserMiddleware> {
       this.middleware.passAuth("jwt"),
       (req, res) => this.controller.getUserById(req, res)
     );
+    this.router.get("/users/user-render/:id", (req, res) =>
+      this.controller.getUserById(req, res)
+    );
     this.router.get(
       "/users/user-customer/:id",
       this.middleware.passAuth("jwt"),
@@ -28,14 +31,26 @@ export class UserRouter extends BaseRouter<UserController, UserMiddleware> {
     this.router.put(
       "/users/update/:id",
       this.middleware.passAuth("jwt"),
-      (req, res, next) => [this.middleware.checkAdminRole(req, res, next)],
+      (req, res, next) => this.middleware.compareIdUser(req, res, next),
+      (req, res) => this.controller.updateUser(req, res)
+    );
+    this.router.put(
+      "/users/update-admin/:id",
+      this.middleware.passAuth("jwt"),
+      (req, res, next) => this.middleware.checkAdminRole(req, res, next),
       (req, res) => this.controller.updateUser(req, res)
     );
     this.router.delete(
       "/users/delete/:id",
       this.middleware.passAuth("jwt"),
-      (req, res, next) => [this.middleware.checkAdminRole(req, res, next)],
       (req, res) => this.controller.deleteUser(req, res)
+    );
+
+    this.router.put(
+      "/users/reset-password/:token",
+      (req, res, next) => [this.middleware.compareIdsPassword(req, res, next)],
+
+      (req, res) => this.controller.updatePassword(req, res)
     );
   }
 }

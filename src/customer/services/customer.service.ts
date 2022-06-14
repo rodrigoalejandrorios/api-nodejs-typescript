@@ -4,13 +4,12 @@ import { CustomerEntity } from "../entitites/customer.entity";
 import { CustomerDTO } from "../dto/customer.dto";
 import { UserService } from "../../user/services/user.service";
 import { RoleType } from "../../user/dto/user.dto";
-import { UserEntity } from "../../user/entities/user.entity";
 export class CustomerService extends BaseService<CustomerEntity> {
   constructor(private readonly userService: UserService = new UserService()) {
     super(CustomerEntity);
   }
 
-  async findAllCustomers(): Promise<CustomerEntity[]> {
+  async findAllCustomers(): Promise<Array<CustomerEntity>> {
     return (await this.execRepository).find();
   }
   async findCustomerById(id: string): Promise<CustomerEntity | null> {

@@ -13,6 +13,7 @@ import { DataSource } from "typeorm";
 import { LoginStrategy } from "./auth/strategies/login.strategy";
 import { JwtStrategy } from "./auth/strategies/jwt.strategy";
 import { AuthRouter } from "./auth/auth.router";
+import { MailRouter } from "./mail/mail.router";
 
 class ServerBootstrap extends ConfigServer {
   public app: express.Application = express();
@@ -25,6 +26,7 @@ class ServerBootstrap extends ConfigServer {
     this.passportUse();
     this.dbConnect();
     this.app.use(morgan("dev"));
+    this.app.use(express.static(__dirname + "/templates"));
 
     this.app.use(
       cors({
@@ -41,6 +43,7 @@ class ServerBootstrap extends ConfigServer {
   routers(): Array<express.Router> {
     return [
       new UserRouter().router,
+      new MailRouter().router,
       new PurchaseRouter().router,
       new ProductRouter().router,
       new CustomerRouter().router,

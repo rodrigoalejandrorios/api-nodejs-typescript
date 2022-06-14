@@ -10,8 +10,15 @@ export class ProductService extends BaseService<ProductEntity> {
     super(ProductEntity);
   }
 
-  async findAllProducts(): Promise<ProductEntity[]> {
-    return (await this.execRepository).find();
+  async findAllProducts(
+    offset?: number | undefined,
+    limit?: number | undefined
+  ): Promise<ProductEntity[]> {
+    return (await this.execRepository)
+      .createQueryBuilder("products")
+      .skip(offset ? offset : 0)
+      .take(limit ? limit : 10)
+      .getMany();
   }
   async findProductById(id: string): Promise<ProductEntity | null> {
     return (await this.execRepository).findOneBy({ id });

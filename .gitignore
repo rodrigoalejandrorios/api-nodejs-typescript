@@ -3,3 +3,5 @@
 .vscode/*
 anotaciones.txt
 src/migrations
+.env
+.production.env
