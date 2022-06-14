@@ -70,7 +70,7 @@ export class MailService extends ConfigServer {
         "1h"
       );
       if (token) {
-        const isResolve: Promise<boolean> = new Promise((resolve, reject) => {
+        const isResolve: Promise<boolean> = new Promise((resolve, _reject) => {
           this.transport.sendMail(
             {
               from: "coderrdev@gmail.com", // verified sender email
