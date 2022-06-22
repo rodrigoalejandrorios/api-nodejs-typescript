@@ -78,7 +78,7 @@ export class UserController {
     try {
       const data: DeleteResult = await this.userService.deleteUser(id);
       if (!data.affected) {
-        return this.httpResponse.NotFound(res, "Hay un error en actualizar");
+        return this.httpResponse.NotFound(res, "Hay un error en borrar");
       }
       return this.httpResponse.Ok(res, data);
     } catch (e) {

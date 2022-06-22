@@ -1,19 +1,26 @@
-import { HttpResponse } from "../response/http.response";
-import passport from "passport";
 import { NextFunction, Request, Response } from "express";
-import { UserEntity } from "../../user/entities/user.entity";
+import passport from "passport";
 import { RoleType } from "../../user/dto/user.dto";
+import { UserEntity } from "../../user/entities/user.entity";
+import { HttpResponse } from "../response/http.response";
 
 export class SharedMiddleware {
-  constructor(public httpRespose: HttpResponse = new HttpResponse()) {}
+  constructor(public httpResponse: HttpResponse = new HttpResponse()) {}
   passAuth(type: string) {
     return passport.authenticate(type, { session: false });
   }
 
-  checkRole(req: Request, res: Response, next: NextFunction) {
+  checkCustomerRole(req: Request, res: Response, next: NextFunction) {
+    const user = req.user as UserEntity;
+    if (user.role !== RoleType.CUSTOMER) {
+      return this.httpResponse.Unauthorized(res, "No tienes permiso");
+    }
+    return next();
+  }
+  checkAdminRole(req: Request, res: Response, next: NextFunction) {
     const user = req.user as UserEntity;
     if (user.role !== RoleType.ADMIN) {
-      return this.httpRespose.Unauthorized(res, "No tienes permisos");
+      return this.httpResponse.Unauthorized(res, "No tienes permiso");
     }
     return next();
   }

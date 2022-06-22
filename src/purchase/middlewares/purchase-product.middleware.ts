@@ -1,13 +1,13 @@
 import { validate } from "class-validator";
 import { NextFunction, Request, Response } from "express";
+import { SharedMiddleware } from "../../shared/middlewares/shared.middleware";
 
-import { HttpResponse } from "../../shared/response/http.response";
 import { PurchaseProductDTO } from "../dto/purchase-product.dto";
 
-export class PurchaseProductMiddleware {
-  constructor(
-    private readonly httpResponse: HttpResponse = new HttpResponse()
-  ) {}
+export class PurchaseProductMiddleware extends SharedMiddleware {
+  constructor() {
+    super();
+  }
   purchaseProductValidator(req: Request, res: Response, next: NextFunction) {
     const { quantityProduct, totalPrice, purchase, product } = req.body;
 

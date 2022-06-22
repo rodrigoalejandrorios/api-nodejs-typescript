@@ -12,6 +12,7 @@ import { PurchaseProductRouter } from "./purchase/purchase-product.router";
 import { DataSource } from "typeorm";
 import { LoginStrategy } from "./auth/strategies/login.strategy";
 import { JwtStrategy } from "./auth/strategies/jwt.strategy";
+import { AuthRouter } from "./auth/auth.router";
 
 class ServerBootstrap extends ConfigServer {
   public app: express.Application = express();
@@ -24,7 +25,14 @@ class ServerBootstrap extends ConfigServer {
     this.passportUse();
     this.dbConnect();
     this.app.use(morgan("dev"));
-    this.app.use(cors());
+
+    this.app.use(
+      cors({
+        origin: true,
+        methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+        credentials: true,
+      })
+    );
 
     this.app.use("/api", this.routers());
     this.listen();
@@ -38,6 +46,7 @@ class ServerBootstrap extends ConfigServer {
       new CustomerRouter().router,
       new CategoryRouter().router,
       new PurchaseProductRouter().router,
+      new AuthRouter().router,
     ];
   }
 
@@ -57,7 +66,9 @@ class ServerBootstrap extends ConfigServer {
 
   public listen() {
     this.app.listen(this.port, () => {
-      console.log("Server listening on port =>" + this.port);
+      console.log(
+        `Listen in ${this.port} :: ENV = ${this.getEnvironment("ENV")}`
+      );
     });
   }
 }
